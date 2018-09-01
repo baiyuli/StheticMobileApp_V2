@@ -20,14 +20,13 @@ class homePage extends Component {
   render() {
     
     return (
-      <ScrollView style={{backgroundColor: '#ffcd00'}} >
-
-        <View 
-          style={{ flex: 1,
+      <View>
+      <View 
+          style={{backgroundColor: '#ffcd00',
           flexDirection: 'row',
           justifyContent: 'space-between',
-          alignItems: 'center',
-          height: 70 }}
+          alignItems: 'flex-end',
+          height: 60}}
         >
         <Animatable.View
           animation='fadeIn'
@@ -39,7 +38,7 @@ class homePage extends Component {
             containerStyle={styles.iconStyle}
             name='menu' 
             underlayColor='transparent'
-            size={34}
+            size={32}
             onPress={() => Actions.drawerOpen()}
           />
         </Animatable.View>
@@ -53,10 +52,12 @@ class homePage extends Component {
             What's New
           </Animatable.Text>
         </View>
-        
-        {this.renderSurveys()}
+      <ScrollView style={{backgroundColor: '#ffcd00', height: 610}} >
+        <View style={{height: 10, backgroundColor: '#ffcd00'}} />
 
+        {this.renderSurveys()}
       </ScrollView>
+      </View>
     );
   }
 }
@@ -75,7 +76,7 @@ const styles = {
     paddingBottom: 10,
     paddingRight: 10,
     fontFamily: 'Helvetica Neue',
-    fontSize: 25,
+    fontSize: 23,
     fontWeight: 'bold'
   },
   iconStyle: {

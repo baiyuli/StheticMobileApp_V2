@@ -2,31 +2,31 @@
 {"title": "google-keep",
 "description": "Give your thoughts on Google Keep!",
 "payout": "$15",
-"length": "15 mins",
+"length": "15 min",
 "picture": "google-keep.png"
 },
 {"title": "facebook-moments",
 "description": "Give your thoughts on Facebook Moments!",
 "payout": "$25",
-"length": "30 mins",
+"length": "30 min",
 "picture": "facebook-moments.png"
 },
 {"title": "apple-music",
 "description": "Try the Apple Music update!",
 "payout": "$25",
-"length": "30 mins",
+"length": "30 min",
 "picture": "apple-music.png"
 },
 {"title": "igtv",
 "description": "Give your thoughts on Instagram TV!",
 "payout": "$20",
-"length": "25 mins",
+"length": "25 min",
 "picture": "igtv.jpg"
 },
 {"title": "snkrs",
 "description": "Try the Nike SNKRS update!",
 "payout": "$25",
-"length": "30 mins",
+"length": "30 min",
 "picture": "snkrs.png"
 }
 ]

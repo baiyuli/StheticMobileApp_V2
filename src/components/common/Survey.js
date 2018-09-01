@@ -11,15 +11,21 @@ const Survey = ({ survey }) => {
   const { title, description, payout, length, picture } = survey;
 
   return (
-      <Card
+      <TouchableOpacity
         onPress={() => Actions.SurveyDetail(survey)}
-        style={{ container: {
+        activeOpacity={0.85}
+        style={{
           backgroundColor: '#ffcd00',
           alignSelf: 'center',
           width: 335,
           height: 200,
-          marginBottom: 10
-        } }}
+          marginBottom: 10,
+          borderRadius: 5,
+          borderWidth: 1,
+          borderColor: 'transparent',
+          width: 335,
+          height: 200,
+       }}
       >
         <Animatable.View 
           style={{alignItems: 'center'}}
@@ -40,16 +46,22 @@ const Survey = ({ survey }) => {
             <Divider style={{ container: { backgroundColor: '#cccccc'} }}/>
 
             <View style={{ alignSelf: 'center', marginTop: 5 }}>
-              <Text>{description}</Text>
+              <Text style={{fontFamily: 'Helvetica Neue', fontSize: 15}}>
+                {description}
+              </Text>
             </View>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Text>{payout}</Text>
-              <Text>{length}</Text>
+              <Text style={{fontWeight: 'bold', fontFamily: 'Helvetica Neue'}}>
+                {payout}
+              </Text>
+              <Text style={{fontWeight: 'bold', fontFamily: 'Helvetica Neue'}}>
+                {length}
+              </Text>
             </View>
           </CardSection>
         </Animatable.View>
-      </Card>
+      </TouchableOpacity>
   );
 }
 
@@ -64,12 +76,11 @@ const styles = {
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#ddd',
-    shadowColor: '#000',
+    shadowColor: 'black',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.5,
-    shadowRadius: 2,
-    elevation: 1,
-    position: 'relative',
+    shadowRadius: 1,
+    elevation: 2,
     width: 335,
     height: 200,
     marginBottom: 10

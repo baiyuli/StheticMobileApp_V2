@@ -1,12 +1,57 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, KeyboardAvoidingView, Animated, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input, MyButton, Spinner } from './common';
 import * as Animatable from 'react-native-animatable';
+import { SkypeIndicator } from 'react-native-indicators';
+import { TextField } from 'react-native-material-textfield';
+
 
 
 class LoginForm extends Component {
+  constructor(props) {
+    super(props);
+    this.keyboardHeight = new Animated.Value(0);
+    this.imageHeight = new Animated.Value(250);
+  }
+
+  componentWillMount () {
+    this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
+    this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
+  }
+
+  componentWillUnmount() {
+    this.keyboardWillShowSub.remove();
+    this.keyboardWillHideSub.remove();
+  }
+
+  keyboardWillShow = (event) => {
+    Animated.parallel([
+      Animated.timing(this.keyboardHeight, {
+        duration: event.duration,
+        toValue: event.endCoordinates.height,
+      }),
+      Animated.timing(this.imageHeight, {
+        duration: event.duration,
+        toValue: 150,
+      }),
+    ]).start();
+  }
+
+  keyboardWillHide = (event) => {
+    Animated.parallel([
+      Animated.timing(this.keyboardHeight, {
+        duration: event.duration,
+        toValue: 0,
+      }),
+      Animated.timing(this.imageHeight, {
+        duration: event.duration,
+        toValue: 250,
+      }),
+    ]).start();
+  }
+
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -48,7 +93,7 @@ class LoginForm extends Component {
 
   renderButton() {
     if (this.props.loading) {
-      return <Spinner size="large" />;
+      return <SkypeIndicator color='#ffcd00' />;
     }
     
 
@@ -134,12 +179,12 @@ class LoginForm extends Component {
   render() {
   	return (
 
-      <View style={styles.bla}>
+      <Animated.View style={[styles.bla, {paddingBottom: this.keyboardHeight}]}>
 
         <Animatable.View animation='fadeIn' style={styles.imageContainer}>
           <Animatable.Image
             source={require("../images/SLogo.png")}
-            style={styles.logo}
+            style={[styles.logo, {height: this.imageHeight, width: this.imageHeight}]}
             animation="fadeInDown"
             duration={1075}
           />
@@ -151,23 +196,37 @@ class LoginForm extends Component {
           flexDirection: 'column'
         }}>
 
-        <View style={{height: 30}} />
-          <CardSection style={ styles.containerStyle }>
-            <Input
-              placeholder="email"
-              onChangeText={this.onEmailChange.bind(this)}
-              value={this.props.email}
-            />
-          </CardSection>
-
-          <CardSection style={ styles.containerStyle }>
-            <Input
-              secureTextEntry
-              placeholder="password"
-              onChangeText={this.onPasswordChange.bind(this)}
-              value={this.props.password}
-            />
-          </CardSection>
+        <View style={{height: 10}} />
+            <View style={{width: 325, alignSelf: 'center', paddingBottom: 5}}>
+              <TextField
+                label='Email'
+                onChangeText={this.onEmailChange.bind(this)}
+                value={this.props.email}
+                tintColor="#e5b800"
+                activeLineWidth={1}
+                lineWidth={0.5}
+                labelHeight={24}
+                inputContainerPadding={6}
+                labelPadding={0}
+                autoCapitalize={'none'}
+                autoCorrect={false}
+              />
+            
+              <TextField
+                secureTextEntry
+               label="Password"
+               onChangeText={this.onPasswordChange.bind(this)}
+               value={this.props.password}
+               tintColor="#e5b800"
+               activeLineWidth={1}
+               lineWidth={0.5}
+                labelHeight={24}
+                inputContainerPadding={6}
+                labelPadding={0}
+                autoCapitalize={'none'}
+                autoCorrect={false}
+              />
+            </View>
         
         
       
@@ -188,7 +247,7 @@ class LoginForm extends Component {
 
         </View>
 
-      </View>
+      </Animated.View>
 
       
   	);
@@ -227,6 +286,7 @@ const styles = {
   },
   imageContainer: {
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#ffcd00',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },

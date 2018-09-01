@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import * as Animatable from 'react-native-animatable';
@@ -25,7 +25,7 @@ class SideMenu extends Component {
 
         <View style = {styles.optionsContainer}>
           
-          <View style = {styles.iconLabel}>
+          <TouchableOpacity style = {styles.iconLabel}>
             <Icon 
               name='history' 
               size={20} 
@@ -34,9 +34,9 @@ class SideMenu extends Component {
             <Text style={styles.optionsText}>
               Your Campaigns
             </Text>
-          </View>
+          </TouchableOpacity>
 
-          <View style = {styles.iconLabel}>
+          <TouchableOpacity style = {styles.iconLabel}>
             <Icon 
               name='settings' 
               size={20} 
@@ -45,9 +45,9 @@ class SideMenu extends Component {
             <Text style={styles.optionsText}>
               Settings
             </Text>
-          </View>
+          </TouchableOpacity>
 
-          <View style = {styles.iconLabel}>
+          <TouchableOpacity style = {styles.iconLabel}>
             <Icon 
               name='help' 
               size={20} 
@@ -56,9 +56,9 @@ class SideMenu extends Component {
             <Text style={styles.optionsText}>
               Help
             </Text>
-          </View>
+          </TouchableOpacity>
 
-          <View style = {styles.iconLabel}>
+          <TouchableOpacity style = {styles.iconLabel}>
             <Icon 
               name='insert-invitation' 
               size={20} 
@@ -67,7 +67,7 @@ class SideMenu extends Component {
             <Text style={styles.optionsText}>
               Invite
             </Text>
-          </View>
+          </TouchableOpacity>
 
         </View>
 
