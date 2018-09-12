@@ -1,5 +1,5 @@
-# StheticMobileApp_V2
-React Native App for remote UI/UX design usability testing
+# Sthetic React Native App
+React Native App for remote UI/UX design usability testing. Backend implemented using Firebase.
 
 ![](stheticLogin.gif)
 <!-- .element style="height: 300; width: 300" -->
