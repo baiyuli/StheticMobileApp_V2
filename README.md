@@ -1,11 +1,11 @@
 # StheticMobileApp_V2
 React Native App for remote UI/UX design usability testing
 
-![](stheticLogin.gif)
+![](stheticLogin.gif) <!-- .element height="50%" width="50%" -->
 
-![](stheticHomepage.gif)
+![](stheticHomepage.gif) <!-- .element height="50%" width="50%" -->
 
-![](stheticTesting.gif)
+![](stheticTesting.gif) <!-- .element height="50%" width="50%" -->
 
 
 
