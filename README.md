@@ -4,9 +4,9 @@ React Native App for remote UI/UX design usability testing
 ![](stheticLogin.gif)
 <!-- .element style="height: 300; width: 300" -->
 
-![](stheticHomepage.gif){:height="50%" width="50%"}
+![](stheticHomepage.gif)
 
-![](stheticTesting.gif){:height="50%" width="50%"}
+![](stheticTesting.gif)
 
 
 
