@@ -6,19 +6,83 @@ import { CardSection } from '../common';
 import { Actions } from 'react-native-router-flux';
 
 
-const Survey = ({ survey }) => {
-  console.log(survey);
-  const { title, description, payout, length, picture } = survey;
+class Survey extends Component {
+
+  renderPicture() {
+      if (this.props.survey.title === "google-keep"){
+        return (
+          <Animatable.Image
+            source={require("../../images/google-keep.png")}
+            style={styles.surveyImage}
+            animation="fadeIn"
+            duration={1075}
+            delay={350}
+          />
+        )
+      }
+
+      if (this.props.survey.title === "facebook-moments"){
+        return (
+          <Animatable.Image
+            source={require("../../images/facebook-moments.png")}
+            style={styles.surveyImage}
+            animation="fadeIn"
+            duration={1075}
+            delay={350}
+          />
+        )
+      }
+
+      if (this.props.survey.title === "apple-music"){
+        return (
+          <Animatable.Image
+            source={require("../../images/apple-music.png")}
+            style={styles.surveyImage}
+            animation="fadeIn"
+            duration={1075}
+            delay={350}
+          />
+        )
+      }
+
+      if (this.props.survey.title === "igtv"){
+        return (
+          <Animatable.Image
+            source={require("../../images/igtv.jpg")}
+            style={styles.surveyImage}
+            animation="fadeIn"
+            duration={1075}
+            delay={350}
+          />
+        )
+      }
+
+      if (this.props.survey.title === "snkrs"){
+        return (
+          <Animatable.Image
+            source={require("../../images/snkrs.png")}
+            style={styles.surveyImage}
+            animation="fadeIn"
+            duration={1075}
+            delay={350}
+          />
+        )
+      }
+    }
+
+  render() {
+
+  const { title, description, payout, length, picture } = this.props.survey;
 
   return (
       <TouchableOpacity
-        onPress={() => Actions.SurveyDetail(survey)}
+        onPress={() => Actions.SurveyDetail(this.props.survey)}
         activeOpacity={0.85}
         style={{
           backgroundColor: '#ffcd00',
           alignSelf: 'center',
-          width: 335,
-          height: 200,
+          width: 350,
+          height: 210,
           marginBottom: 10,
           borderRadius: 5,
           borderWidth: 1,
@@ -35,13 +99,7 @@ const Survey = ({ survey }) => {
         >
           <CardSection style={styles.cardStyle}>
         
-            <Animatable.Image
-              source={{ uri: 'file:////Users/baiyu/Documents/StheticDemo/Sthetic_v1/src/images/'+picture}}
-              style={styles.surveyImage}
-              animation="fadeIn"
-              duration={1075}
-              delay={500}
-            />
+            {this.renderPicture()}
 
             <Divider style={{ container: { backgroundColor: '#cccccc'} }}/>
 
@@ -63,6 +121,7 @@ const Survey = ({ survey }) => {
         </Animatable.View>
       </TouchableOpacity>
   );
+}
 }
 
 const styles = {

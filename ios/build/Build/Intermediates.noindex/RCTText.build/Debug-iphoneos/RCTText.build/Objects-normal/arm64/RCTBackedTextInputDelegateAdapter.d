@@ -1,0 +1,5 @@
+dependencies: \
+  /Users/baiyu/Documents/StheticMobileApp_V2/node_modules/react-native/Libraries/Text/TextInput/RCTBackedTextInputDelegateAdapter.m \
+  /Users/baiyu/Documents/StheticMobileApp_V2/node_modules/react-native/Libraries/Text/TextInput/RCTBackedTextInputDelegateAdapter.h \
+  /Users/baiyu/Documents/StheticMobileApp_V2/node_modules/react-native/Libraries/Text/TextInput/RCTBackedTextInputViewProtocol.h \
+  /Users/baiyu/Documents/StheticMobileApp_V2/node_modules/react-native/Libraries/Text/TextInput/RCTBackedTextInputDelegate.h

@@ -197,7 +197,7 @@ class LoginForm extends Component {
         }}>
 
         <View style={{height: 10}} />
-            <View style={{width: 325, alignSelf: 'center', paddingBottom: 5}}>
+            <View style={{width: 360, alignSelf: 'center',}}>
               <TextField
                 label='Email'
                 onChangeText={this.onEmailChange.bind(this)}

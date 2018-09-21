@@ -38,7 +38,7 @@ class homePage extends Component {
             containerStyle={styles.iconStyle}
             name='menu' 
             underlayColor='transparent'
-            size={32}
+            size={33}
             onPress={() => Actions.drawerOpen()}
           />
         </Animatable.View>
@@ -52,7 +52,7 @@ class homePage extends Component {
             What's New
           </Animatable.Text>
         </View>
-      <ScrollView style={{backgroundColor: '#ffcd00', height: 610}} >
+      <ScrollView style={{backgroundColor: '#ffcd00', height: 676}} >
         <View style={{height: 10, backgroundColor: '#ffcd00'}} />
 
         {this.renderSurveys()}
@@ -74,7 +74,7 @@ const styles = {
   headerTextStyle: { 
     paddingTop: 25,
     paddingBottom: 10,
-    paddingRight: 10,
+    paddingRight: 12,
     fontFamily: 'Helvetica Neue',
     fontSize: 23,
     fontWeight: 'bold'
@@ -82,7 +82,7 @@ const styles = {
   iconStyle: {
     paddingTop: 13,
     paddingBottom: 10,
-    paddingLeft: 5,
+    paddingLeft: 8,
     backgroundColor: 'transparent'
   }
 

@@ -78,25 +78,25 @@ class SideMenu extends Component {
 
 const styles = {
   logo: {
-    height: 75,
-    width: 75,
+    height: 85,
+    width: 85,
     marginTop: 20,
     marginLeft: 20
   },
   logoContainer:{
-    height: 100,
+    height: 140,
     backgroundColor: '#ffcd00',
     flexDirection: 'row',
     alignItems: 'center'
   },
   name: {
     fontFamily: 'Helvetica Neue',
-    fontSize: 18,
+    fontSize: 20,
     
   },
   rating: {
     fontFamily: 'Helvetica Neue',
-    fontSize: 14,
+    fontSize: 15,
     marginTop: 5,
     color: '#424242'
   },

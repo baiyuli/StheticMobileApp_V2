@@ -1,15 +1,80 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import { Survey, CardSection, MyButton } from '../common';
+import { Survey, CardSection, MyButton, TestScreen } from '../common';
 import { Actions } from 'react-native-router-flux';
 import { Icon, Button, Divider } from 'react-native-elements';
+import Draggable from 'react-native-draggable';
+
+
 
 class SurveyDetail extends Component {
-	render() {
-	  console.log(this.props);
+	
+    renderPicture() {
+      if (this.props.title === "google-keep"){
+        return (
+          <Animatable.Image
+            source={require("../../images/google-keep.png")}
+            style={styles.surveyImage}
+            animation="fadeIn"
+            duration={1075}
+            delay={350}
+          />
+        )
+      }
+
+      if (this.props.title === "facebook-moments"){
+        return (
+          <Animatable.Image
+            source={require("../../images/facebook-moments.png")}
+            style={styles.surveyImage}
+            animation="fadeIn"
+            duration={1075}
+            delay={350}
+          />
+        )
+      }
+
+      if (this.props.title === "apple-music"){
+        return (
+          <Animatable.Image
+            source={require("../../images/apple-music.png")}
+            style={styles.surveyImage}
+            animation="fadeIn"
+            duration={1075}
+            delay={350}
+          />
+        )
+      }
+
+      if (this.props.title === "igtv"){
+        return (
+          <Animatable.Image
+            source={require("../../images/igtv.jpg")}
+            style={styles.surveyImage}
+            animation="fadeIn"
+            duration={1075}
+            delay={350}
+          />
+        )
+      }
+
+      if (this.props.title === "snkrs"){
+        return (
+          <Animatable.Image
+            source={require("../../images/snkrs.png")}
+            style={styles.surveyImage}
+            animation="fadeIn"
+            duration={1075}
+            delay={350}
+          />
+        )
+      }
+    }
+
+  render() {
       const { title, description, payout, length, picture } = this.props;
-      
+
 		return (
 		<View>
 
@@ -26,7 +91,7 @@ class SurveyDetail extends Component {
         >
           <Icon 
             name='arrow-back' 
-            size={32} 
+            size={33} 
             onPress={() => Actions.homePage()}
             underlayColor='transparent'
             containerStyle = {styles.iconStyle}
@@ -49,13 +114,7 @@ class SurveyDetail extends Component {
         >
           <CardSection style={styles.cardStyle}>
         
-            <Animatable.Image
-              source={{ uri: 'file:////Users/baiyu/Documents/StheticDemo/Sthetic_v1/src/images/'+picture}}
-              style={styles.surveyImage}
-              animation="fadeIn"
-              duration={1075}
-              delay={350}
-            />
+            {this.renderPicture()}
 
           </CardSection>
         </Animatable.View>
@@ -87,7 +146,7 @@ class SurveyDetail extends Component {
             </Animatable.View>
             <TouchableOpacity style={{height: 1, width: 315, backgroundColor: '#cccccc'}} />
             <Animatable.View 
-              style={{flexDirection: 'row', alignItems: 'center', paddingTop: 0}}
+              style={{flexDirection: 'row', alignItems: 'center', paddingTop: 50}}
               animation="fadeIn"
               duration={1075}
               delay={350}
@@ -103,7 +162,8 @@ class SurveyDetail extends Component {
 
                 <TouchableOpacity
                   style={styles.buttonStyle}
-                  activeOpacity={0.6} 
+                  activeOpacity={0.6}
+                  onPress={() => Actions.TestScreen()}
                 >
                   <Icon
                     name='arrow-forward' 
@@ -112,7 +172,7 @@ class SurveyDetail extends Component {
                   />
                 </TouchableOpacity>
             </Animatable.View>
-
+              
           </CardSection>
         </Animatable.View>
 
